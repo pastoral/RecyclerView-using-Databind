@@ -19,6 +19,7 @@ public class MovieListBinder {
     public static void bindList(RecyclerView recyclerView, ObservableArrayList<Movie> list){
         LinearLayoutManager layoutManager = new LinearLayoutManager(recyclerView.getContext());
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(new MovieListAdapter(list));
 
     }
 }

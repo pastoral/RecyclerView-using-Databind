@@ -1,64 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height = "wrap_content"
-    android:clipToPadding="false"
-    android:elevation="8dp"
-    >
-    <LinearLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="movie"
+            type="com.munir.databindrecycler.Movie"></variable>
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height = "wrap_content"
+        android:clipToPadding="false"
+        android:elevation="8dp"
+        >
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical" >
-            <ImageView
-                android:layout_width="68dp"
-                android:layout_height="68dp"
-                android:id="@+id/id_ccicon"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:contentDescription="icon"
-                android:scaleType="fitCenter"
-                android:elevation="10dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginLeft="3dp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8dp">
-                <TextView
-                    android:id="@+id/movititle"
-                    android:textColor="@color/title"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Bla Bla Bla"/>
-
-                <TextView
-                    android:id="@+id/genre"
-                    android:layout_below="@id/movititle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hooo hoo hoo"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" >
+                <ImageView
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:id="@+id/id_movieicon"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:contentDescription="icon"
+                    android:scaleType="fitCenter"
+                    android:elevation="10dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="3dp"
+                    bind:imageRes = "@{movie.posterMovie}"
                     />
-
-                <TextView
-                    android:id="@+id/year"
-                    android:textColor="@color/year"
-                    android:layout_width="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignTop="@id/genre"
-                    android:layout_height="wrap_content"
-                    android:text="Whoa Whaoa"/>
             </LinearLayout>
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp">
+                    <TextView
+                        android:id="@+id/movititle"
+                        android:textColor="@color/title"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{movie.title}"/>
 
-</RelativeLayout>
+                    <TextView
+                        android:id="@+id/genre"
+                        android:layout_below="@id/movititle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{movie.genre}"
+                        />
+
+                    <TextView
+                        android:id="@+id/year"
+                        android:textColor="@color/year"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@id/genre"
+                        android:layout_height="wrap_content"
+                        android:text="@{movie.year}"/>
+                </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
